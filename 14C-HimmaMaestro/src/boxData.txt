@@ -1,0 +1,14 @@
+﻿{
+"box":{
+"explanation":{"lift":"为1时可以执行操作" , "down":"为0时不可以执行操作" , "step":"为-1时要轮候到下一方块再判决" , "value":"方块排序的上下位置", "score":"方块得分，为0时没有对应这个方块的得分地板" , "explosion":"方块的爆炸类型"},
+
+"glass":{ "lift":1 , "down":-1 , "step":-1 , "value":1 , "score":0 ,"explosion":"Explosion_Delete"},
+"scartter":{ "lift":1 , "down":-1 , "step":-1 , "value":2 , "score":2,"explosion":"Explosion_Delete"},
+"timerec":{"lift":1 , "down":-1 , "step":-1, "value":3 , "score":0,"explosion":"Explosion_Delete"},
+"normal":{ "lift":1 , "down":1 , "step":0  , "value":4 , "score":1,"explosion":"Explosion_Null"},
+"hero":{ "lift":-1 , "down":0 , "step":-1 , "value":5 , "score":0,"explosion":"Explosion_Null"},
+"power":{"lift":1 , "down":1 , "step":-1 , "value":6 , "score":0,"explosion":"Explosion_Null"},
+"bomb":{ "lift":0 , "down":-1 , "step":0  , "value":7 , "score":0,"explosion":"Explosion_Delete"},
+"brick":{ "lift":0 , "down":1 , "step":1  , "value":8 , "score":1,"explosion":"Explosion_Null"}
+}
+}

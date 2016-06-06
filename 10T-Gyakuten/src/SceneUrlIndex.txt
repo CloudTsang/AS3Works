@@ -1,0 +1,19 @@
+[
+{
+"id": "LivingRoom",
+"Name":"豪宅客厅",
+"Picture":"Scene1.jpg",
+"Json":"Scene1Item.php",
+"Block":"Scene1Block.jpg",
+"ItemSheet":"Scene1Item.jpg"
+}
+,
+{
+"id": "BedRoom",
+"Name":"豪宅睡房",
+"Picture":"Scene2.jpg",
+"Json":"Scene1Item.php",
+"Block":"Scene2Block.jpg",
+"ItemSheet":"Scene1Item.jpg"
+}
+]

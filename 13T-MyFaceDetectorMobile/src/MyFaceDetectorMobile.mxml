@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   height="672" applicationDPI="160" creationComplete="callLater(Init)">
+	
+	<fx:Script>
+		<![CDATA[
+			import jp.maaash.ObjectDetection.ObjectDetector;
+			import jp.maaash.ObjectDetection.ObjectDetectorEvent;
+			
+			import org.osmf.elements.ImageLoader;
+			
+			private var bmp:Bitmap;
+			private var facebmp:Bitmap;
+			private var imgLoader:ImageFileLoader;
+			private var detector:FaceDetector;
+			private var colorTrans:Colors;
+			private var spVec:Vector.<Shape>;
+			private var currentSelect:Shape;
+			private var resizer:ImageSizeAdapter;
+			private var sp:Sprite;
+			
+			private function Init():void{
+				stage.align = StageAlign.TOP_LEFT;
+				stage.scaleMode = StageScaleMode.NO_SCALE;	
+				detector=new FaceDetector;
+				colorTrans=new Colors;
+				bmp=new Bitmap;
+				sp=new Sprite;
+				stage.addChild(sp);
+				detector.addEventListener(ObjectDetectorEvent.DETECTION_COMPLETE , onDetectComplete);
+				sp.addEventListener(MouseEvent.CLICK , faceClickHandler);
+			}			
+			
+			private function faceClickHandler(e:MouseEvent):void{
+				trace(mouseX,mouseY)
+				var tmp:Shape;
+				for(var i:int=0 ; i<spVec.length ; i++){
+					tmp=spVec[i];
+					if(tmp.hitTestPoint(mouseX , mouseY)){					
+						if(currentSelect) currentSelect.transform.colorTransform=colorTrans.Normal;
+						tmp.transform.colorTransform=colorTrans.Selected;
+						currentSelect=tmp;
+						if(facebmp){
+							if(facebmp.stage)sp.removeChild(facebmp);
+						}
+						var facebmpd:BitmapData=new BitmapData(tmp.width , tmp.height);
+						facebmpd.copyPixels( bmp.bitmapData , new Rectangle(tmp.x , tmp.y , tmp.width , tmp.height) , new Point(0,0));
+						facebmp=new Bitmap(facebmpd);
+						facebmp.x=stage.stageWidth-300;
+						facebmp.y=200;
+						sp.addChild(facebmp);
+						btnSave.visible=true;
+						btnInput.visible=true;
+						return;
+					}
+				}
+			}
+			
+			private function onDetectComplete(e:ObjectDetectorEvent):void{
+				if(e.rects.length==0)return;					
+				spVec=new Vector.<Shape>;
+				var tmp:Shape;
+				for(var i:int=0 ; i<e.rects.length ; i++){
+					tmp=drawRect(e.rects[i]);
+					sp.addChild(tmp);
+					spVec.push(tmp);
+				}		
+				
+			}
+			
+			private function drawRect(rect:Rectangle):Shape{
+				var s:Shape=new Shape;
+				s.graphics.lineStyle(5);
+				s.graphics.drawRect(0,0 , rect.width , rect.height);
+				s.x=rect.x;
+				s.y=rect.y;
+				s.transform.colorTransform=colorTrans.Normal;
+				return s;
+			}
+			
+			protected function btnLaodImg_clickHandler(event:MouseEvent):void
+			{
+				imgLoader=new ImageFileLoader(bmp);
+				imgLoader.addEventListener("LoadComplete" , onImgLoadComplete);
+			}
+			private function onImgLoadComplete(e:Event=null):void{
+//				if(!resizer)resizer=new ImageSizeAdapter(stage.stageWidth , stage.stageHeight-100);
+				if(!resizer)resizer=new ImageSizeAdapter(960 , 500);
+//				trace(stage.stageWidth , stage.stageHeight);
+				sp.removeChildren();
+				bmp=imgLoader.Bmp;
+				sp.addChild(bmp);
+				var tmp:Bitmap=bmp;
+				bmp.bitmapData=resizer.changeImgSize( bmp.bitmapData );
+				detector.detect(tmp);			
+//				detector.detect(bmp);			
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Button id="btnLoadImg" x="30" y="561" width="154" height="34" label="加载图像"
+			  click="btnLaodImg_clickHandler(event)"/>
+	<s:Button id="btnSave" x="417" y="551" label="保存" visible="false"/>
+	<s:TextInput id="btnInput" x="230" y="561" width="164" prompt="请输入头像名称" visible="false"/>
+</s:Application>

@@ -1,0 +1,98 @@
+[
+  {
+    "width": 11,
+    "height": 10,
+    "size":20,
+    "hero":{"x":9 , "z":9},
+    "timelimit":60,
+    "scorelimit":15,
+    "floor":
+    [
+    {"x":4 , "z":7 , "t":"normal"},
+    {"x":9 , "z":1 , "t":"brick"} 
+    ],
+    "box":
+    [
+    {"x":1 , "z":3 , "h":3 , "t":["brick" , "normal"] } ,   
+    {"x":1 , "z":8 , "h":5 , "t":["brick" , "scartter&3" , "normal" ,"normal"]},
+    {"x":3 , "z":6 , "h":4 , "t":["brick" , "normal"  , "normal" , "glass&2"] },
+    {"x":3 , "z":9 , "h":1 , "t":["normal"] },    
+    {"x":4 , "z":4,  "h":3 , "t":["brick" , "normal"]},
+    {"x":5 , "z":1 , "h":2 , "t":["power","brick"] },
+    {"x":6 , "z":3 , "h":4 , "t":["brick" , "glass&3" , "brick" ,"normal"]},
+    {"x":7 , "z":4 , "h":3 , "t":["normal" , "bomb&2","normal"] },
+    {"x":8 , "z":5 , "h":1 , "t":["brick"] } ,
+    {"x":8 , "z":9 , "h":5 , "t":["brick" ,  "brick","scartter&2"] } ,
+    {"x":9 , "z":1, "h":5 , "t":["brick"  ,"brick" , "normal" , "normal"]},
+    {"x":9 , "z":3 , "h":2 , "t":["scartter&3" , "scartter&2"]},
+    {"x":9 , "z":9 , "h":2 , "t":["hero"] } 
+    ] ,
+    "bird":
+    [  
+    {"time":58 , "direction":1 , "type":["brick","glass&1","glass&1"], "target":{"x":8 , "z":9} , "speed":4},
+    {"time":30 , "direction":0 , "type":["brick" ,"brick", "bomb&2" , "normal"] , "target":{"x":6 ,"z":2} , "speed":5}
+    ]
+  },
+  
+  {
+      "width":15 , 
+      "height":18 , 
+      "size": 20 ,
+      "hero":{"x":17 , "z":14},
+      "timelimit":120,
+      "scorelimit":30,
+      "floor":
+      [
+      {"x":2 , "z":12 , "t":"normal"},
+      {"x":10 ,"z":7 , "t":"brick" }
+      ],
+      "box":
+      [
+      {"x":1 ,"z":3 ,"h":7 , "t":["brick" , "brick" ,"brick" , "bomb&4" , "normal" , "normal" , "normal"]},
+      {"x":1 , "z":4 , "h":3 , "t":["normal" , "normal" , "glass&4"]},
+      {"x":1 , "z":13 , "h":4 , "t":["normal" , "normal" , "normal" , "normal"]},
+      {"x":2 , "z":1 , "h":5 , "t":["brick" , "normal" , "glass&5" , "normal" , "bomb&2"]},
+      {"x":12 , "z":1 , "h":4 , "t":["brick" , "brick" , "bomb&3" , "normal" , "timerec&5"]},
+      {"x":12, "z":10 , "h":2 , "t":["brick" ,"normal"]},
+      {"x": 17 , "z":14 , "h":1 , "t":["hero"] }
+      ],
+      "bird":
+      [
+      {"time":100 , "direction":1 , "type":["brick","bomb&4","normal"] , "target":{"x":11,"z":11} , "speed":10}
+      ]
+  },
+  
+  
+  {
+   "width":7 , 
+      "height":7 , 
+      "size": 25 ,
+      "hero":{"x":6 , "z":6},
+      "timelimit":240,
+      "scorelimit":50,
+      "floor":
+      [
+      {"x":1 , "z":1 , "t":"normal"},
+      {"x":4 ,"z":4 , "t":"brick" }
+      ],
+      "box":
+      [
+      {"x":1 ,"z":1 ,"h":7 , "t":["brick" , "brick" ,"brick" , "bomb&4" , "normal" , "normal" , "normal"]},
+      {"x":1 , "z":2 , "h":3 , "t":["normal" , "normal" , "glass&4"]},
+      {"x":1 , "z":3 , "h":4 , "t":["normal" , "normal" , "normal" , "normal"]},
+      {"x":2 , "z":1 , "h":5 , "t":["brick" , "normal" , "glass&5" , "normal" , "bomb&2"]},
+      {"x":4 , "z":3 , "h":4 , "t":["brick" , "brick" , "bomb&3" , "normal" , "timerec&5"]},
+      {"x":5, "z":2 , "h":2 , "t":["brick" ,"normal"]},
+      {"x": 6 , "z":6 , "h":1 , "t":["hero"] }
+      ],
+      "bird":
+      [
+      {"time":230 , "direction":0 ,"type":["scartter&2"] , "target":{"x":2 , "z":3 } , "speed":5 },
+      {"time":200 , "direction":1 , "type":["brick","bomb&3","normal" , "glass&2"] , "target":{"x":4,"z":6} , "speed":10},
+      {"time": 175, "direction":1 ,"type":["brick" , "brick","scartter&3"] , "target":{"x": 1, "z":5 } , "speed":7 },
+      {"time": 120, "direction":0 ,"type":["normal" , "normal" , "bomb&4"] , "target":{"x":6 , "z":2 } , "speed":14 },
+      {"time": 80, "direction":1 ,"type":["scartter&5","normal" ,"bomb&2" ] , "target":{"x":4 , "z":0 } , "speed":10 },
+      {"time": 40, "direction":0 ,"type":["timerec&6" ,"brick","timerec&4","normal" , "timerec&2","scartter&1"] , "target":{"x":3 , "z":2 } , "speed":5 }
+      ]
+  }
+]

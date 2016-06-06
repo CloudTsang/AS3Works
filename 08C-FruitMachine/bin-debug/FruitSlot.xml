@@ -1,0 +1,12 @@
+<FruitMc>
+<Slot name="orange">
+<mc>mc00</mc>
+</Slot>
+<Slot name="bar2">
+<mc>mc01</mc>
+</Slot>
+<Slot name="smltest">
+<mc>MMC</mc>
+</Slot>
+
+</FruitMc>

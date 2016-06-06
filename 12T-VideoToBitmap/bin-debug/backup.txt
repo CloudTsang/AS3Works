@@ -1,0 +1,140 @@
+package {
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.BlendMode;
+	import flash.display.FrameLabel;
+	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.filters.BlurFilter;
+	import flash.filters.ConvolutionFilter;
+	import flash.geom.Matrix;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import flash.media.Camera;
+	import flash.media.Video;
+	import flash.ui.Keyboard;
+	import flash.utils.Timer;
+	
+	[SWF(width="640", height="600",  backgroundColor="0xFFFFFF" , frameRate="60")]
+	public class VideoToBitmap extends Sprite
+	{
+		private var _cam:Camera;
+		private var _vid:Video;
+		
+		private var _matrix:Matrix
+		private var _newFrame:BitmapData;
+		private var _oldFrame:BitmapData;
+		private var _blendFrame:BitmapData;
+		private var _bmp:Bitmap;
+		private const DOT:int=5;
+		private var _cbRect:Sprite;
+		private var _mtRect:Sprite;
+		
+		private var _color:uint = 0xffffff;
+		private var _red:Array;
+		private var _green:Array;
+		private var _blue:Array;
+		
+		private var _timer:Timer;
+		
+		public function VideoToBitmap()
+		{
+			stage.align = StageAlign.TOP_LEFT;
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+			
+			_cam = Camera.getCamera();
+			_cam.setMode(640, 480, 15);
+			_vid = new Video(640, 480);
+			_vid.attachCamera(_cam);
+			_vid.filters = [new BlurFilter(10,10 , 1)];
+			//			_vid.filters = [new ConvolutionFilter(1, 3, [0, 4, -4]),new BlurFilter()]; //edge tracking
+			
+			_newFrame = new BitmapData(640, 480, false);
+			addChild(new Bitmap(_newFrame));
+			_oldFrame = _newFrame.clone();
+			_blendFrame = _newFrame.clone();
+						_bmp=new Bitmap(_newFrame);
+//			_bmp=new Bitmap(_blendFrame);
+//						_bmp=new Bitmap(_oldFrame);
+			_matrix=new Matrix(-1,0,0,1,_newFrame.width ,0);
+			addChild(_bmp);
+			
+			_cbRect = new Sprite();
+			addChild(_cbRect);	
+			
+			_mtRect=new Sprite();
+			addChild(_mtRect);
+			
+			makePaletteArrays();
+			_timer=new Timer(100);
+			_timer.addEventListener(TimerEvent.TIMER , onEnterFrame);
+			_timer.start();
+			
+			//			addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			stage.addEventListener(MouseEvent.CLICK, onClick);			
+			stage.addEventListener(KeyboardEvent.KEY_DOWN , captureCtrl);
+		}
+		private function captureCtrl(e:KeyboardEvent):void{
+			switch(e.keyCode){
+				case Keyboard.A:
+					if(_timer.running)_timer.stop();
+					else _timer.stop();					
+					break;
+			}
+		}
+		private function makePaletteArrays():void
+		{
+			_red = new Array();
+			_green = new Array();
+			_blue = new Array();
+			var levels:int = 4;
+			var div:int = 256 / levels;
+			for(var i:int = 0; i < 256; i++)
+			{
+				var value:Number = Math.floor(i / div ) * div; 
+				_red[i] = value << 16;
+				_green[i] = value << 8;
+				_blue[i] = value
+			}
+		}
+		
+		private function onClick(event:MouseEvent):void
+		{
+			_color = _newFrame.getPixel(mouseX, mouseY);
+		}
+		
+		private function onEnterFrame(event:Event):void
+		{
+			_blendFrame.draw(_oldFrame);
+			_newFrame.draw(_vid, _matrix);
+			_oldFrame.draw(_newFrame);
+			
+			_blendFrame.draw(_newFrame, null, null, BlendMode.DIFFERENCE);
+			_blendFrame.threshold(_blendFrame, _blendFrame.rect, new Point(), "<", 0x00330000, 0xff000000, 0x00ff0000, true);
+			
+			_newFrame.paletteMap(_newFrame, _newFrame.rect, new Point(), _red, _green, _blue);
+			
+			var rect:Rectangle = _newFrame.getColorBoundsRect(0xffffff, _color, true);
+			_cbRect.graphics.clear();
+			_cbRect.graphics.lineStyle(1, 0xff0000);
+			_cbRect.graphics.drawRect(rect.x, rect.y, rect.width, rect.height);
+			
+			var rect1:Rectangle = _blendFrame.getColorBoundsRect(0xffffff, 0, false);
+			_mtRect.graphics.clear();
+			_mtRect.graphics.lineStyle(1, 0x00FF00);
+			_mtRect.graphics.drawRect(rect1.x, rect1.y, rect1.width, rect1.height);
+			
+			for(var i:int=rect1.x ; i<rect1.x+rect1.width ; i+=DOT){
+				for(var j:int=rect1.y ; j<rect1.y+rect1.height ; j+=DOT){
+//					if(_newFrame.getPixel(i,j)>0x00FFFF) _blendFrame.setPixel(i,j,0x0000ff);
+//					if(_blendFrame.getPixel(i,j)>0x00FFFF) _blendFrame.setPixel(i,j,0x0000ff);
+				}
+			}			
+		}
+	}
+}

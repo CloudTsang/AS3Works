@@ -1,0 +1,12 @@
+{
+"title":"BGMtitle",
+"prepare":"BGMPreparation",
+"clear":"BGMclear",
+"gameover":"BGMgameover",
+"work0600":
+["BGMwork0600","BGMwork06001","BGMwork06002"],
+"work1800":
+["BGMwork1800" ,"BGMwork19001" , "BGMwork19002"],
+"work2400":
+["BGMwork2400" , "BGMwork24001" , "BGMwork24002"]
+}

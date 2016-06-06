@@ -1,0 +1,19 @@
+<SceneUrlIndex>
+
+<Scene id="豪宅客厅">
+<Picture>Scene1.jpg</Picture>
+<Json>Scene1Item.php</Json>
+<Block>Scene1Block.jpg</Block>
+<Item>Scene1Item.xml</Item>
+<ItemSheet>Scene1Item.jpg</ItemSheet>
+</Scene>
+
+<Scene id="豪宅睡房">
+<Picture>Scene2.jpg</Picture>
+<Json>Scene1Item.php</Json>
+<Block>Scene2Block.jpg</Block>
+<Item>Scene1Item.xml</Item>
+<ItemSheet>Scene1Item.jpg</ItemSheet>
+</Scene>
+
+</SceneUrlIndex>

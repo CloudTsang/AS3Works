@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="948" height="604" minWidth="1300" minHeight="600" currentState="StateInit"
+			   height.BnW="604">
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.events.*;
+			import flash.utils.setTimeout;
+			
+			import flashx.textLayout.conversion.ConversionType;
+			import flashx.textLayout.conversion.TextConverter;
+			import flashx.textLayout.elements.TextFlow;
+			
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.events.DragEvent; 
+			
+			public var nc:NetConnection;
+			public var addr:String="rtmfp://localhost/ChatRich1NC";
+			
+			private var pns:NetStream; 
+			private var rns:NetStream;
+			
+			private var cam:Camera; 
+			private var mic:Microphone; 
+			private var video:Video; 
+			
+			private var SO:SharedObject;
+			
+			private var responder:Responder;
+			
+			public var userArray:ArrayCollection;
+			
+			public function btnConfirm_clickHandler(event:MouseEvent):void
+			{			
+				responder=new Responder(callServerSuccess , callServerError);
+				nc=new NetConnection;
+				nc.addEventListener(NetStatusEvent.NET_STATUS,onTalkNetStatusHandler);				
+				nc.connect(addr , {type:"client" , name:nameInputText.text});				
+				nc.client={		
+					logRenew:renewLog,
+					getUserlist:getUserlist,
+					renewUserlist:renewUserlist,
+					renewThumb:CreateBnWThumb
+				};			
+				userArray=new ArrayCollection();
+			}
+			
+			private function onTalkNetStatusHandler(e:NetStatusEvent):void{
+				trace(e.info.code);				
+				switch (e.info.code){
+					case "NetConnection.Connect.Success":
+						nc.client.userName=nameInputText.text;
+						setCurrentState("ChatRoom");
+						//					SO = SharedObject.getRemote("ChatRich1NC",nc.uri, false);
+						//					SO.connect(nc);
+						//					SO.client=new SOClient();
+						//					SO.addEventListener(SyncEvent.SYNC,SyncHandler);		
+						//						Security.loadPolicyFile("rtmfp://localhost/ChatRich1NC/crossdomain.xml");
+						this.addEventListener(KeyboardEvent.KEY_DOWN,sendEnter);
+						btnPublish.addEventListener(MouseEvent.CLICK,onPublishNetStatusClick);
+						btnRecord.addEventListener(MouseEvent.CLICK,onRecordNetStatusClick);
+						lbPublish.text="连接成功，可以准备摄像头与麦克风";
+						lbRecord.text="连接成功， 可以接收视频。"; 	
+						break;
+					case "NetConnection.Connect.Rejected":
+						trace("连接失败");				
+						lbTips.text="连接失败，请稍后再试。";
+						lbTips.text=e.info.application.message;
+						break;
+					case "NetConnection.Connect.Closed":
+						setCurrentState("StateInit");
+						Alert.show("网络连接断线了!");
+				}
+			}
+			
+			private function CreateBnWThumb(arr:Array):String{
+				var bmpd:BitmapData=new BitmapData(160,160);
+				for(var j:int=0 ; j<=7 ; j++){
+					for(var i:int=0 ; i<=7 ; i++){						
+						switch(arr[j][i]){
+							case 0:
+								bmpd.draw(new white , new Matrix(1,0,0,1,j*20,i*20));
+								break;
+							case 1:
+								bmpd.draw(new black , new Matrix(1,0,0,1,j*20,i*20));
+								break;
+							case 2:
+								bmpd.draw(new empty , new Matrix(1,0,0,1,j*20,i*20));
+								break;
+						}
+					}
+				}
+				var BnWThumb:Bitmap=new Bitmap(bmpd);
+				BnWThumb.x=20;
+				BnWThumb.y=400;
+				img.source=BnWThumb;
+				return nc.client.userName+"已更新棋盘缩略图。";		
+			}
+			
+			private function callServerSuccess(re:Object):void{
+				//				trace(re);
+				if(re==null)return;
+				switch(re.type){
+					case "trace":
+						trace(re.info);
+						break;
+					case "alert":
+						Alert.show("error:"+re.info);
+						break;
+					case "log":
+						renewLog(re.info);
+						break;
+				}
+			}		
+			private function callServerError(info:Object):void{
+				trace("call failed");
+				Alert.show( "error: " + info.description );
+				Alert.show( "error: " + info.code );
+			}
+			
+			private function renewUserlist(_name:String , _id:String , add:Boolean):String{			
+				if(add){
+					userArray.addItem({name:_name , id:_id});
+					renewLog(_name +" 加入了聊天室。<br>");
+					return (nc.client.userName + " 成功将 " + _name + " 加入了在线名单。");
+				}
+				else{
+					for(var i:int=0 ; i<userArray.length ; i++)
+					{
+						if(userArray[i].id==_id) {
+							userArray.removeItemAt(i)	;
+							renewLog(_name +" 退出了聊天室。<br>");
+							return (nc.client.userName + " 成功将 " + _name + " 从名单中移除了。");
+						}
+					}
+				}			
+			}
+			private function getUserlist(arr:Array):String{
+				for(var i:int=0 ; i<arr.length ; i++){
+					userArray.addItem({name:arr[i].userName , id:arr[i].id});
+				}				
+				return nc.client.userName+"已更新用户列表";
+			}		
+			
+			private function renewLog(str:String=""):String{
+				trace(str);			
+				txtLog.htmlText+=str;
+				txtLog.validateNow();
+				txtLog.verticalScrollPosition=txtLog.maxVerticalScrollPosition;	
+				return (nc.client.userName+"更新了聊天记录");
+			}
+			
+			protected function sendClick(e:MouseEvent):void
+			{
+				if(txtTalk.text!="") {
+					nc.call("UserTalk" ,responder , nc.client.userName,txtTalk.text);
+					txtTalk.text="";
+				}
+			}
+			protected  function sendEnter(e:KeyboardEvent):void{
+				if(txtTalk.text!=""&& e.keyCode==Keyboard.ENTER){
+					nc.call("UserTalk" ,responder , nc.client.userName,txtTalk.text);
+					txtTalk.text="";
+				}
+			}
+			
+			private function onPublishNetStatusClick(e:MouseEvent):void{			
+				btnPublish.removeEventListener(MouseEvent.CLICK,onPublishNetStatusClick);
+				pns = new NetStream(nc); 
+				pns.addEventListener(NetStatusEvent.NET_STATUS,publishHandler);
+				pns.publish(nc.client.userName ,"live"); 		
+			}
+			private function publishHandler(e:NetStatusEvent):void{					
+				if(e.info.code=="NetStream.Publish.BadName"){
+					lbPublish.text="摄像头或其他相关设备已被占用！"; 	
+					btnPublish.addEventListener(MouseEvent.CLICK,onPublishNetStatusClick);
+				}else if(e.info.code=="NetStream.Publish.Start"){	
+					lbPublish.text="正在发布视频"; 	
+					cam = Camera.getCamera(); 
+					mic = Microphone.getMicrophone(); 
+					mic.setUseEchoSuppression(true);
+					pns.attachAudio(mic); 
+					pns.attachCamera(cam); 
+					pns.client=nc.client; 
+					PublishVideo.attachCamera(cam); 					
+					btnPublish.addEventListener(MouseEvent.CLICK,onPublichCloseHandler);
+					btnPublish.label="中断视频";		
+					
+				}
+			}		
+			
+			private function onPublichCloseHandler(e:Event):void{				
+				pns.attachAudio(null); 
+				pns.attachCamera(null); 
+				pns.close();			
+				lbPublish.text="已停止发布视频";
+				btnPublish.label="发布视频";
+				btnPublish.addEventListener(MouseEvent.CLICK,onPublishNetStatusClick);	
+			}
+			
+			private function onRecordNetStatusClick(e:MouseEvent):void{	
+				btnRecord.removeEventListener(MouseEvent.CLICK,onRecordNetStatusClick);
+				rns = new NetStream(nc); 
+				rns.addEventListener(NetStatusEvent.NET_STATUS,recordHandler);
+				rns.play(nc.client.userName,"record"); 	
+			}
+			private function recordHandler(e:NetStatusEvent):void{
+				//trace(rns.info);
+				if(rns.info.videoBytesPerSecond==0 && rns.info.resourceName!=null &&  e.info.code=="NetStream.Play.Start"){
+					lbRecord.text="然而并没有什么人发布了视频！"; 	
+					btnRecord.addEventListener(MouseEvent.CLICK,onRecordNetStatusClick);
+				}else if(  (rns.info.videoBytesPerSecond!=0 &&  e.info.code== "NetStream.Play.Start") || e.info.code== "NetStream.Play.PublishNotify" ){				
+					lbRecord.text="视频接收成功，正在播放中。"; 
+					rns.client=nc.client; 
+					video = new Video(); 
+					video.width=320; 
+					video.height=240; 
+					video.attachNetStream(rns); 
+					RecordVideo.addChild(video); 								
+					btnRecord.label="中断接收";
+					btnRecord.removeEventListener(MouseEvent.CLICK,onRecordNetStatusClick);
+					btnRecord.addEventListener(MouseEvent.CLICK,onRecordCloseHandler);
+				}else if(e.info.code=="NetStream.Play.UnpublishNotify"){
+					lbRecord.text="对方取消了视频发布。"; 
+				}
+			}
+			private function onRecordCloseHandler(e:Event):void{
+				rns.close();
+				btnRecord.label="接收视频";
+				lbRecord.text="已停止接收视频";
+				btnRecord.addEventListener(MouseEvent.CLICK,onRecordNetStatusClick);
+			}
+			
+			protected function btnBnWChess_clickHandler(event:MouseEvent):void
+			{
+				nc.call("joinBnW" , responder , nc.client);
+								setCurrentState("BnW");
+				// TODO Auto-generated method stub
+			}
+			
+			protected function btnChat_clickHandler(event:MouseEvent):void
+			{
+				setCurrentState("ChatRoom");
+				// TODO Auto-generated method stub
+			}
+			
+		]]>
+	</fx:Script>
+	<s:states>
+		<s:State name="ChatRoom"/>
+		<s:State name="StateInit"/>
+		<s:State name="BnW"/>
+	</s:states>
+	
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+		
+	</fx:Declarations>
+	<mx:Panel x="230" y="23" width="340" height="282" layout="absolute" title="视频发布端" includeIn="ChatRoom"> 
+		<mx:VideoDisplay id="PublishVideo" x="9" y="0" width="320" height="240"/> 
+	</mx:Panel> 
+	<mx:Panel x="586" y="23" width="340" height="282" layout="absolute" title="视频接收端" id="playPan" includeIn="ChatRoom"> 
+		<mx:VideoDisplay id="RecordVideo" x="10" y="0" width="320" height="240"/> 
+	</mx:Panel> 
+	<mx:Button id="btnPublish" includeIn="ChatRoom" x="250" y="341" label="发布视频" fontWeight="normal"/> 
+	<mx:Button id="btnRecord" includeIn="ChatRoom" x="581" y="344" label="接收视频" fontWeight="normal"/> 
+	<mx:Label id="lbPublish" includeIn="ChatRoom" x="338" y="343" width="232"/> 
+	<mx:Label id="lbRecord" includeIn="ChatRoom" x="658" y="345" width="257"/>
+	<s:Panel includeIn="ChatRoom" x="253" y="383" width="662" height="211">
+		<s:Button x="557" y="147" label="发送" click="sendClick(event)"/>
+		<!--<s:TextArea x="23" y="10" width="636"  editable="false"  heightInLines="8" id="txtLog"  />-->
+		<mx:TextArea id="txtLog" x="23" y="10" width="609" height="128" editable="false"	/>  
+		<s:TextInput x="23" y="146" width="519" id="txtTalk"/>	
+	</s:Panel>
+	<s:List id="userList" includeIn="ChatRoom" x="34" y="23" width="155" height="306"
+			color="#0BA80B" fontSize="15" textAlign="center" dataProvider="{userArray}" labelField="name"></s:List>
+	<s:Panel id="userNamePanel" includeIn="StateInit" x="337" y="139" width="342" height="225"
+			 textAlign="center" title=" 聊天室">
+		<s:TextInput id="nameInputText" x="42" y="70" width="259" height="48" fontSize="35"
+					 textAlign="center"/>
+		<s:Button id="btnConfirm" x="114" y="145" label="确认并连接聊天室"
+				  click="btnConfirm_clickHandler(event)"/>
+		<s:Label id="lbTips" x="68" y="31" text="请输入在聊天室中使用的名字并确认。"/>
+	</s:Panel>
+	<s:Button id="btnBnWChess" includeIn="ChatRoom" x="40" y="338" label="黑白棋"
+			  click="btnBnWChess_clickHandler(event)"/>
+	<s:SWFLoader includeIn="BnW" x="8" y="6" width="782" height="598"
+				 source="file:///F:/Adobe%20Media%20Server%205/applications/BnWChessVerServer/bin-debug/BnWChessVerServer.swf"/>
+	<s:Button includeIn="BnW" x="40" y="338" label="聊天室" click="btnChat_clickHandler(event)"/>
+	<s:Image id="img" includeIn="ChatRoom" x="23" y="383"/>
+</s:Application>

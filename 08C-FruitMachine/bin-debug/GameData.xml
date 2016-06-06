@@ -1,0 +1,15 @@
+<GameData>
+<Data type="money">5000</Data>
+<Data type="prize">0</Data>
+<Data type="gamble">0</Data>
+<Data type="bet">0</Data>
+
+<Array type="rate">
+<param>1</param>
+<param>5</param>
+<param>10</param>
+<param>50</param>
+</Array>
+
+
+</GameData>

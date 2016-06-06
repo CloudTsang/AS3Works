@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- &#x00A; 换行 -->
+
+<Scene1Item>
+<Item id="16707840">
+<Name>电视</Name>
+<Locate>豪宅睡房</Locate>
+<Markable>true</Markable>
+<ifMark>false</ifMark>
+<Descript>肩上的这份沉重......和10年来没有电视看的痛苦相比根本算不上什么！</Descript>
+<Search>/normal/&&电视，居然是电视——！
+要是带回去可能就愉快地看起来了
+根本不想卖掉。</Search>
+<x>0</x>
+<y>2</y>
+</Item>
+
+<Item id="65450">
+<Name>枕头</Name>
+<Locate>豪宅睡房</Locate>
+<Markable>true</Markable>
+<ifMark>false</ifMark>
+<Descript>普通的枕头，不小心枕着就睡着了什么的根本不可能发生。</Descript>
+<Search>/normal/&&看看枕头下面藏了什么&&/slow/&&
+......&&/instant/&&zzzz_(|з」∠)_</Search>
+<x>1</x>
+<y>0</y>
+</Item>
+
+<Item id="16712189">
+<Name>床头柜</Name>
+<Locate>豪宅睡房</Locate>
+<Markable>true</Markable>
+<ifMark>false</ifMark>
+<Descript>居然整个柜子背回去了......太重了，真的非常重，而且重到不行！</Descript>
+<Search>/normal/&&床头柜里面一定有存折银行卡什么的
+&&/slow/&&......&&/instant/&&/stop/&&居然锁上了！
+&&/normal/&&我这世纪大盗对锁头可一点办法都没有。</Search>
+<x>0</x>
+<y>0</y>
+</Item>
+
+<Item id="65525">
+<Name>木质装饰</Name>
+<Locate>豪宅睡房</Locate>
+<Markable>false</Markable>
+<ifMark>false</ifMark>
+<Descript>null</Descript>
+<Search>/normal/&&图案复杂的装饰，这可没法带&&/slow/&&......&&/instant/&&@@@_(|з」∠)_</Search>
+<x>2</x>
+<y>0</y>
+</Item>
+
+<Item id="8373097">
+<Name>吊灯</Name>
+<Locate>豪宅客厅</Locate>
+<Markable>true</Markable>
+<ifMark>false</ifMark>
+<Descript>把背包塞得圆鼓鼓的吊灯，看来今晚只能就这样回去了。</Descript>
+<Search>明亮的灯光仿佛驱散了内心的黑暗......等等，谁开的灯！？被保安发现了怎么办╬</Search>
+<x>1</x>
+<y>1</y>
+</Item>
+
+<Item id="84125">
+<Name>假花</Name>
+<Locate>豪宅客厅</Locate>
+<Markable>true</Markable>
+<ifMark>false</ifMark>
+<Descript>这么逼真的假花，或许真的能卖个好价钱......才怪吧喂╬</Descript>
+<Search>与豪华的装潢不相衬的插得杂乱的假花，拜托，这么有钱就买真花啦。</Search>
+<x>0</x>
+<y>1</y>
+</Item>
+
+<Item id="14942591">
+<Name>镜子</Name>
+<Locate>豪宅客厅</Locate>
+<Markable>true</Markable>
+<ifMark>false</ifMark>
+<Descript>拥有吸引人去照一下的魔力的神奇镜子，一定能买个好价钱。</Descript>
+<Search>/normal/&&真是太帅了&&/slow/&&
+......&&/instant/&&糟糕，&&/quick/&&不小心被吸引了！
+&&/normal/&&得赶快找到值钱的东西。</Search>
+<x>2</x>
+<y>1</y>
+</Item>
+
+
+<Item id="8409882">
+<Name>门</Name>
+<Locate>豪宅客厅</Locate>
+<Markable>false</Markable>
+<ifMark>false</ifMark>
+<Descript>null</Descript>
+<Search>/normal/&&通往花园的门，但是从窗口进出是我的执着。</Search>
+<x>1</x>
+<y>2</y>
+</Item>
+
+<Item id="16777215">
+<Name>空白</Name>
+<Locate>所有</Locate>
+<Markable>false</Markable>
+<ifMark>false</ifMark>
+<Descript>null</Descript>
+<Search>/normal/&&没有什么可在意的。</Search>
+<x>999</x>
+<y>999</y>
+</Item>
+
+
+</Scene1Item>

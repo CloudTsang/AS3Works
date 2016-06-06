@@ -1,0 +1,61 @@
+[
+{"btn":"btnAstar","swf":"AstarPrac.swf" , "wid":1200 , "hei":600,
+"txt":"基础的A星寻路，以及简单的人物行走动画的制作"
+},
+
+{"btn":"btnBallgame" , "swf":"ballgame.swf" , "wid":1200 , "hei":600,
+"txt":"撞球游戏"
+},
+
+{"btn":"btnShuffle" , "swf":"bmpPrac.swf" , "wid":1000 ,"hei":665,
+"txt":"学习bitmap（data）类的使用，z键控制1000张扑克牌的洗牌效果，x键控制光球的上升效果"
+},
+
+{"btn":"btnChat" , "swf":"ChatRich1NC.swf","wid":1000,"hei":680,
+"txt":"用fms做的黑白棋+视频聊天室"
+},
+
+{"btn":"btnBullet" , "swf":"EscapeBullet.swf" , "wid":1000 , "hei":575,
+"txt":"简单的移动+角度双摇杆"
+},
+
+{"btn":"btnFace" , "swf":"MyFaceDetectorMobile.swf"  , "wid":960 , "hei":650,
+"txt":"简单地使用了移植opencv库做的人面识别，识别精确度微妙……"
+},
+
+{"btn": "btnFruitMachine", "swf":"Main.swf" , "wid":700 ,"hei":650,
+"txt":"简单的水果机"
+},
+
+{"btn": "btnAVG", "swf":"Gyakuten.swf" ,"wid":1024 ,"hei":683,
+"txt":"avg式的调查系统，练习xml、json"
+},
+
+{"btn": "btnHimmae", "swf":"HimmaMaestro.swf","wid":500,"hei":600,
+"txt":"学习了等角对象和一些设计模式后制作的搬砖游戏，虽然关卡只设计了测试功能用的第一关，是作品中比较复杂和完整的一个"
+},
+
+{"btn": "btnJumpSlot", "swf":"ShonenJumpSlot.swf" , "wid":1380 , "hei":740,
+"txt":"20线5轮老虎机"
+},
+
+{"btn": "btnShoot1", "swf":"ShootGamble.swf" , "wid":1380 , "hei":740,
+"txt":"仿照5轮老虎机的玩法做的捕鱼游戏，上下键增加子弹数，左右键开放炮台，ENTER开始游戏，SPACE发炮"
+},
+
+{"btn": "bynShoot2", "swf":"ShootGamble2.swf" , "wid":1380 , "hei":740,
+"txt":"仿照水果机的玩法做的捕鱼游戏，1-8向不同颜色的鱼的投注，ENTER开始游戏，SPACE发炮"
+},
+
+{"btn": "btnSnake", "swf":"tanchishe.swf" , "wid":900 , "hei":600,
+"txt":"最多可以同时控制3条蛇的贪吃蛇游戏，学习了SharedObject，数组，声音的使用，做的比较完整"
+},
+
+{"btn": "btnTetris", "swf":"tetris.swf" , "wid":500 , "hei":700,
+"txt":"简单的俄罗斯方块，使用上下左右键"
+},
+
+{"btn": "btnGesture", "swf":"VideoToBitmap.swf","wid":650 , "hei":650,
+"txt":"精度不高的手势识别，使用混合帧检测运动的手部，检测像素的颜色再与模板对照"
+}
+]

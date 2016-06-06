@@ -1,0 +1,42 @@
+{
+"menus":["top" ,"help" , "stage" , "ready" , "timeselect"],
+"menuFormat_Size":30,
+
+"titlemenu":
+{
+"top":[
+{"selection":"搬砖大师Himma Maestro", "description":"" , "prev":null , "next":null , "id":null },
+{"selection":"开始游戏" , "description":"" , "prev":null , "next":"stage" , "id":null},
+{"selection":"怎么玩" ,"description":"" ,"prev":null, "next":"help" , "id":"HowToPlay"}
+],
+"help":[
+{"selection":"玩法" , "description":"" , "prev":null , "next":null },  
+{"selection":"键位" , "description":"十字键：移动\nZ:确定/举起\nX:取消/踩上\nC:放下\nV:踢出\n空格:得分" , "prev":"top" , "next":null },  
+{"selection":"任务目标" , "description":"限制时间内将砖块搬到颜色相同的地板上并消除得分，分数高于最低得分时即可过关。" , "prev":"top" , "next":null },  
+{"selection":"砖块爆炸" , "description":"印有数字的砖块，当叠在上面的砖块数大于数字时会发生“爆炸”，不同种类的砖块爆炸有不同效果。" , "prev":"top" , "next":null },
+{"selection":"大鸟丢砖" , "description":"在特定时间会有大鸟将砖块丢下来，这时如果站在砖块正下方可以无视力量值和高度将那些砖块举起或踩住。" , "prev":"top" , "next":null },
+{"selection":"规则1" , "description":"在限制时间内将砖块搬到相应颜色的地板上消除得分，分数高于通关得分即为过关。" , "prev":"top" , "next":null },
+{"selection":"规则2" , "description":"在游玩中按下“title”键回到标题时，若分数已超过通关得分也算作过关。" , "prev":"top" , "next":null } 
+],
+"stage":[
+{"selection":"关卡选择", "description":"" , "prev":null , "next":null , "id":null},
+{"selection":"第一关" ,  "description":"限时60秒\n最低通关得分15" ,"prev":"top" , "next":"ready" , "id":0},
+{"selection":"第二关" ,  "description":"限时120秒\n最低通关得分30" ,"prev":"top" , "next":"ready" , "id":1},
+{"selection":"第三关" ,  "description":"限时240秒\n最低通关得分50" ,"prev":"top" , "next":"ready" , "id":2}
+],
+"ready":[  
+{"selection":"战前准备", "description":"" , "prev":null , "next":null , "id":null},
+{"selection":"出击" ,  "description":"" , "prev":"stage" , "next":"timeselect" , "id":null},
+{"selection":"增强砖块"   ,  "description":"游戏开始时将踩着一块增强砖（POW+1），最多能开放3个。\n扣除5分。" , "prev":"stage"  ,  "next":"event" , "id":"item&numPow"},
+{"selection":"探照灯"   ,  "description":"能显示周围砖块情况，总共有3级，每开放1级显示的范围会增大。\n扣除3分。"  , "prev":"stage" ,  "next":"event" , "id":"item&numLight"},
+{"selection":"捕鸟器"   ,  "description":"降低大鸟出现几率，总共有3级，每提升1级几率降低越大。\n扣除9分。"  , "prev":"stage" ,  "next":"event" , "id":"item&numBirdCapture"}
+],
+"timeselect":
+[
+{"selection":"出击时间选择", "description":"" , "prev":null , "next":null , "id":null},
+{"selection":"0600" , "description":"早上干活经常出现乱丢砖块的大鸟" , "prev":"ready" , "next":"event" , "id":"gamestart&0600"},
+{"selection":"1800" , "description":"晚上干活限制时间更短" , "prev":"ready" , "next":"event" , "id":"gamestart&1800"},
+{"selection":"2400" , "description":"深夜干活看不清楚，不能在开场时检视全部砖块" ,"prev":"ready", "next":"event" , "id":"gamestart&2400"}
+]
+}
+}

@@ -1,0 +1,16 @@
+{
+"title":"0xffffff",
+"background0600":"0x99ccff",
+"background1800":"0xffcc33",
+"background2400":"0x330099",
+"normal":"0xCD5B45",
+"brick":"0xCD0000",
+"bomb":"0x000000",
+"hero":"0xFFFFFF",
+"glass":"0x99ccff",
+"walk":"0xffcc00",
+"power":"0xff6600",
+"scartter":"0xcc33cc",
+"timerec":"0xFFFFFF"
+}
+

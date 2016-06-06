@@ -1,0 +1,219 @@
+!SESSION 2016-06-06 11:46:49.549 -----------------------------------------------
+eclipse.buildId=I20100608-0911
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data F:\github作品集\
+
+!ENTRY org.eclipse.ui 2 0 2016-06-06 11:46:52.908
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-06-06 11:46:52.908
+!MESSAGE Commands should really have a category: plug-in='com.qnx.flashbuilder.multiplatform.qnx.ui', id='com.qnx.flashbuilder.multiplatform.qnx.ui.commands.OpenInfoCenter', categoryId='com.qnx.flashbuilder.multiplatform.qnx.ui.commands.category.help'
+
+!ENTRY com.adobe.flexbuilder.ui 4 1 2016-06-06 11:47:05.543
+!MESSAGE Product = null version = 460 edition = stnd
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 11:50:00.201
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.multiplatform.launchhandlers.MultiPlatformADLLaunchHandler.launch(MultiPlatformADLLaunchHandler.java:140)
+	at com.adobe.flexide.launching.multiplatform.MultiPlatformLaunchDelegate.launch(MultiPlatformLaunchDelegate.java:191)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 11:51:07.551
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.multiplatform.launchhandlers.MultiPlatformADLLaunchHandler.launch(MultiPlatformADLLaunchHandler.java:140)
+	at com.adobe.flexide.launching.multiplatform.MultiPlatformLaunchDelegate.launch(MultiPlatformLaunchDelegate.java:191)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 11:52:13.273
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.multiplatform.launchhandlers.MultiPlatformADLLaunchHandler.launch(MultiPlatformADLLaunchHandler.java:140)
+	at com.adobe.flexide.launching.multiplatform.MultiPlatformLaunchDelegate.launch(MultiPlatformLaunchDelegate.java:191)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jface 2 0 2016-06-06 11:52:58.919
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 11:52:58.919
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.declarations.in.workspace,在工作空间中查找所有声明,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllDeclarationsAction@c50279)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexide.editorcore.flexEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.declarations.in.workspace,在工作空间中查找所有声明,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllDeclarationsAction@c50279)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexbuilder.as.editor.context.packageexplorer,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace,工作空间中的声明,
+		在工作空间中搜索对所选元素的声明,
+		Category(org.eclipse.search.ui.category.search,搜索,搜索命令类别,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 11:52:58.919
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.references.in.workspace,在工作空间中查找所有引用,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllReferencesAction@2566bd)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexide.editorcore.flexEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.references.in.workspace,在工作空间中查找所有引用,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllReferencesAction@2566bd)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexbuilder.as.editor.context.packageexplorer,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace,工作空间中的引用,
+		在工作空间中搜索对所选元素的引用,
+		Category(org.eclipse.search.ui.category.search,搜索,搜索命令类别,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 11:53:46.371
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.multiplatform.launchhandlers.MultiPlatformADLLaunchHandler.launch(MultiPlatformADLLaunchHandler.java:140)
+	at com.adobe.flexide.launching.multiplatform.MultiPlatformLaunchDelegate.launch(MultiPlatformLaunchDelegate.java:191)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 12:05:49.784
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.AbstractFdbLaunchDelegate.launch(AbstractFdbLaunchDelegate.java:67)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 12:10:31.792
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.AbstractFdbLaunchDelegate.launch(AbstractFdbLaunchDelegate.java:67)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 12:22:45.451
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.multiplatform.launchhandlers.MultiPlatformADLLaunchHandler.launch(MultiPlatformADLLaunchHandler.java:140)
+	at com.adobe.flexide.launching.multiplatform.MultiPlatformLaunchDelegate.launch(MultiPlatformLaunchDelegate.java:191)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2016-06-06 12:23:16.547
+!MESSAGE 路径包含非法字符：作
+!STACK 0
+java.lang.Exception
+	at com.adobe.flexbuilder.project.internal.FlexProjectCore.createErrorStatus(FlexProjectCore.java:1019)
+	at com.adobe.flexbuilder.util.logging.GlobalLogImpl.log(GlobalLogImpl.java:66)
+	at com.adobe.flexbuilder.util.logging.GlobalLog.log(GlobalLog.java:52)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.modifyAppXMLforANEPackaging(ADLLaunchHandler.java:278)
+	at com.adobe.flexide.launching.air.ADLLaunchHandler.launch(ADLLaunchHandler.java:152)
+	at com.adobe.flexide.launching.multiplatform.launchhandlers.MultiPlatformADLLaunchHandler.launch(MultiPlatformADLLaunchHandler.java:140)
+	at com.adobe.flexide.launching.multiplatform.MultiPlatformLaunchDelegate.launch(MultiPlatformLaunchDelegate.java:191)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:244)
+	at com.adobe.flexide.launching.AbstractFlexLaunchDelegate.launch(AbstractFlexLaunchDelegate.java:134)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
